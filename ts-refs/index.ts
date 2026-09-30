@@ -13,8 +13,8 @@ const secrets = new pulumi.StackReference("secrets", { name: `${org}/perm-secret
 // An environment opened from program code rather than from the stack's config. No error handling:
 // if the environment cannot be opened, the program fails.
 async function openProgramOnlyEnvironment(): Promise<string> {
-    // DefaultClient uses PULUMI_BACKEND_URL verbatim as the ESC API base path, which needs /api/esc.
-    const client = esc.DefaultClient(new esc.Configuration({ basePath: `${process.env.PULUMI_BACKEND_URL}/api/esc` }));
+    // Reads PULUMI_ACCESS_TOKEN and PULUMI_BACKEND_URL, which Deployments sets for the job.
+    const client = esc.DefaultClient();
     const env = await client.openAndReadEnvironment(org, "perm-demo", "program-only");
     return String(env?.values?.greeting);
 }
