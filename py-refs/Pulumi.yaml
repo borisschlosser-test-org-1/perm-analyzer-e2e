@@ -1,0 +1,7 @@
+name: perm-prog-py
+runtime:
+  name: python
+  options:
+    toolchain: pip
+    virtualenv: venv
+description: Stack and environment references defined in Python program code.

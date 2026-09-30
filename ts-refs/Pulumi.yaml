@@ -1,0 +1,6 @@
+name: perm-prog-ts
+runtime:
+  name: nodejs
+  options:
+    typescript: true
+description: Stack and environment references defined in TypeScript program code.

@@ -1,0 +1,2 @@
+pulumi>=3.0.0,<4.0.0
+pulumi-esc-sdk>=0.14.0

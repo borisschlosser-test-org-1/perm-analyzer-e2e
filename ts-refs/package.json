@@ -1,0 +1,12 @@
+{
+  "name": "perm-prog-ts",
+  "main": "index.ts",
+  "devDependencies": {
+    "@types/node": "^22",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@pulumi/esc-sdk": "^0.14.0",
+    "@pulumi/pulumi": "^3"
+  }
+}
