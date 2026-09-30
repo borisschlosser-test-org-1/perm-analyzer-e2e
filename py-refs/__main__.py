@@ -1,5 +1,5 @@
 import pulumi
-import pulumi_esc_sdk as esc
+from pulumi_esc_sdk.esc_client import default_client
 
 org = pulumi.get_organization()
 stack = pulumi.get_stack()
@@ -10,7 +10,7 @@ pulumi.export("vpcId", network.get_output("vpcId"))
 
 # An environment opened from program code. The program tolerates a failure and carries on.
 try:
-    _, values, _ = esc.default_client().open_and_read_environment(org, "perm-demo", "program-only")
+    _, values, _ = default_client().open_and_read_environment(org, "perm-demo", "program-only")
     pulumi.export("greeting", values.get("greeting"))
 except Exception as e:  # noqa: BLE001
     pulumi.log.warn(f"could not open perm-demo/program-only: {e}")
